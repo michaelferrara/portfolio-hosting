@@ -112,7 +112,7 @@ const SliderFull = (props) => {
           return(
             <div key= {index} className= "Slide">
               <div className="Panel">
-                <img className="Pic" src={process.env.PUBLIC_URL + item.pictures[0]} alt="Game1"></img>
+                <img className="Pic" src={process.env.PUBLIC_URL + item.pictures[0]} alt={item.name + " picture " + (index+1)}></img>
                 <div className="TextBox">
                   <h2>{item.name}</h2>
                   <p>{item.shortDescription}</p>

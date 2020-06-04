@@ -9,8 +9,10 @@ const SliderImg = (props) => {
 
   if (props.projectObj) {
     sliderArr = props.projectObj.pictures;
+    altName = props.projectObj.name;
   } else if (props.pictureObj) {
     sliderArr = props.pictureObj.pictures;
+    altName = "Michael";
   }
 
 
@@ -94,7 +96,7 @@ const SliderImg = (props) => {
             sliderArr.map((item, index) => {
               return(
                 <div key= {index} className= "SlideImg">
-                  <img id="ProjPic" src={process.env.PUBLIC_URL + '/' + sliderArr[index]} alt="Game1"></img>
+                  <img id="ProjPic" src={process.env.PUBLIC_URL + '/' + sliderArr[index]} alt={altName + " picture " + (index+1)}></img>
                 </div>
               )
             })
