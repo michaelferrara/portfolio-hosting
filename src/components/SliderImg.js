@@ -5,6 +5,7 @@ import './SliderImg.scss';
 const SliderImg = (props) => {
 
   let sliderArr = [];
+  let altName = "";
   const [x,setX] = useState(0);
 
   if (props.projectObj) {
