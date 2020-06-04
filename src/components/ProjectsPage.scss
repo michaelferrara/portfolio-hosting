@@ -1,0 +1,105 @@
+.ProjPageHolder {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  flex-direction: column;
+  padding-top: 8vh;
+}
+
+/*
+#ProjectsCarousel {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  height: 65vh;
+  width: 80vw;
+  background-color: #ededed;
+  color: #ededed;
+
+  #Pic {
+    //flex-grow: 1;
+    height: 65vh;
+    width: 100px;
+  }
+}
+*/
+
+.RelLink {
+  margin-right: 100px;
+  margin-left: auto;
+}
+
+.ProjTitle {
+  margin-left: 5%;
+  text-align: left;
+  width: auto;
+  color: #333;
+}
+
+.ProjDescription {
+  color: #333;
+}
+
+.DescriptionHolder {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5%;
+}
+
+.ListHolderProj {
+  width: 90%;
+  min-height: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.ListElementProj {
+  h2 {
+    color: #333;
+  }
+  li {
+    color: #333;
+  }
+}
+
+.VertSpacerProj {
+  height: 50vh;
+  width: 2px;
+  background-color: #b8b8b8;
+  color: #b8b8b8;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.ListElementProj ul {
+  width:30vw;
+  margin-bottom:20px;
+  overflow:hidden;
+  text-align: left;
+}
+
+.ListElementProj li{
+  line-height:1.5em;
+  float:left;
+  display:inline;
+}
+
+.ListElementProj li:before {
+  content: "•";
+}
+
+.doubleProj li  { width:50%;}
+
+.RoleText {
+  color: #333;
+}
+
+.SpaceBefore {
+  margin-left: 5%;
+}
+
