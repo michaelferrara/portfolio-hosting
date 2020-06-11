@@ -40,7 +40,7 @@ function ProjectsPage(props) {
       <div className="ListHolderProj">
         <div className="ListElementProj">
           <h2>Technologies Used</h2>
-          <ul id="techList" className="doubleProj">
+          <ul id="techList">
           </ul>
         </div>
         <div className="VertSpacerProj"></div>

@@ -87,17 +87,17 @@
 
 .ListElementProj li{
   line-height:1.5em;
-  float:left;
-  display:inline;
+  //float:left;
+  //display:inline;
   color: #333;
   font-family: "Fira Sans", sans-serif;
+  list-style-type: none;
 }
 
 .ListElementProj li:before {
-  content: "•";
+  content: "✧ ";
+  color: #7820ab;
 }
-
-.doubleProj li  { width:50%;}
 
 .RoleText {
   color: #333;
