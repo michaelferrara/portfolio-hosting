@@ -17,10 +17,13 @@
   flex-direction: row;
   height: 70vh;
   width: auto;
-  #Pic {
-    height: 100%;
-    left: 0;
-  }
+}
+
+.ProfPic {
+  background: url("../michaelProf.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 40%;
 }
 
 .PicTextHolder {
@@ -42,6 +45,7 @@
     padding-right: .9%;
     margin-top: auto;
     font-size: 20px;
+    font-family: "Fira Sans", sans-serif;
     word-wrap: break-word;
     overflow: hidden;
     float: left;
@@ -95,7 +99,7 @@
 }
 
 .ListHolder {
-  width: 60%;
+  width: 75%;
   min-height: 40%;
   margin-left: auto;
   margin-right: auto;
@@ -108,6 +112,7 @@
     color: #333;
   }
   li {
+    font-family: "Fira Sans", sans-serif;
     color: #333;
   }
 }
@@ -122,7 +127,7 @@
 }
 
 .ListElement ul {
-  width:20vw;
+  width:30vw;
   margin-bottom:20px;
   overflow:hidden;
   text-align: left;
@@ -135,7 +140,8 @@
 }
 
 .ListElement li:before {
-  content: "•";
+  content: "✧ ";
+  color: #7820ab;
 }
 
 .double li  { width:50%;}

@@ -52,12 +52,12 @@ function PersonalPage(props) {
     <h2 className='PersTitle'>Experience</h2>
     <div className="PersListHolder">
       <div className="PersListElement">
-        <h3>Know</h3>
+        <h3>What I Know</h3>
         <ul className="PersDouble" id="KnownList"></ul>
       </div>
       <div className="PersVertSpacer"></div>
       <div className="PersListElement">
-        <h3>Learning</h3>
+        <h3>What I'm Learning</h3>
         <ul className="PersDouble" id="LearningList"></ul>
       </div>
     </div>

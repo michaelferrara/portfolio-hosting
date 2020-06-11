@@ -63,7 +63,7 @@ function HomePage(props){
   return (
     <div id="PageHolder">
       <div id="PictureSection">
-          <img id="Pic" src={process.env.PUBLIC_URL + '/michaelProf.jpg'} alt="Michael Ferrara"></img>
+          <div className="ProfPic" alt="Michael Ferrara"></div>
           <div className="PicTextHolder">
             <h1>Michael Ferrara: Developer</h1>
             <br/>
@@ -79,12 +79,12 @@ function HomePage(props){
       <h2 className='DarkFont'>Experience</h2>
       <div className="ListHolder">
         <div className="ListElement">
-          <h3>Know</h3>
+          <h3>What I Know</h3>
           <ul className="double" id="KnownList"></ul>
         </div>
         <div className="VertSpacer"></div>
         <div className="ListElement">
-          <h3>Learning</h3>
+          <h3>What I'm Learning</h3>
           <ul className="double" id="LearningList"></ul>
         </div>
       </div>

@@ -60,41 +60,46 @@
 
   h3 {
     color: #333;
-    margin-top: 1%;
+    margin-top: 4%;
     margin-bottom: 0;
-    margin-left: 1%;
+    margin-left: 4%;
+    font-size: 1.1em;
+    font-family: "Fira Sans", sans-serif;
   }
 
   p {
     flex-grow: 1;
-    padding-left: 1%;
-    padding-right: 1%;
+    padding-left: 4%;
+    padding-right: 4%;
     padding-top: 2%;
     margin: 0;
+    font-size: .9em;
+    font-family: "Fira Sans", sans-serif;
 
     color: #333;
   }
 
   button {
     border-width: 2px;
-    border-color: #333;
+    border-color: #7820ab;
     position: absolute;
     right: 2%;
     bottom: 2%;
     height: 6vh;
     width: 8vw;
-    background-color: #ededed;
-    color: #333;
+    background-color: #f4e4f7;
+    color: #7820ab;
     font-family: "Fira Sans", sans-serif;
     font-size: 17px;
+    border-radius: 12px;
     display: none;
     &:hover {
-      background-color: #333;
-      color: #ffffff;
+      background-color: #7820ab;
+      color: #f4e4f7;
     }
     &:focus {
-      background-color: #333;
-      color: #ffffff;
+      background-color: #7820ab;
+      color: #f4e4f7;
     }
     &:active {
       background-color: #111;
