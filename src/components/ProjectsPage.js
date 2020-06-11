@@ -33,7 +33,7 @@ function ProjectsPage(props) {
     <div className="ProjectHolder">
       <h1 className="ProjTitle">{props.projectObj.name}</h1>
       <SliderImg projectObj = {props.projectObj}/>
-      <h1 className="ProjTitle">Description</h1>
+      <h2 className="ProjTitle">Description</h2>
       <div className="DescriptionHolder">
         <p className="ProjDescription">{props.projectObj.description}</p>
       </div>
@@ -50,7 +50,7 @@ function ProjectsPage(props) {
         </div>
       </div>
       <div className="LineSpacer"></div>
-      <h1 className="ProjTitle">Related Links</h1>
+      <h2 className="ProjTitle">Related Links</h2>
       <p id = "linkList"></p>
       <br></br>
     </div>

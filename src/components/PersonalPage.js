@@ -42,27 +42,27 @@ function PersonalPage(props) {
     <div className="PersonalHolder">
       <h1 className="PersTitle">Michael Ferrara</h1>
       <SliderImg pictureObj = {props.pictureObj}/>
-      <h1 className="PersTitle">Bio</h1>
+      <h2 className="PersTitle">Bio</h2>
       <div className="BioHolder">
         <p className="PersDescription">{props.pictureObj.bio}</p>
       </div>
     </div>
     <div className="LineSpacer"></div>
 
-    <h1 className='DarkFont'>Experience</h1>
+    <h2 className='PersTitle'>Experience</h2>
     <div className="PersListHolder">
       <div className="PersListElement">
-        <h2>Know</h2>
+        <h3>Know</h3>
         <ul className="PersDouble" id="KnownList"></ul>
       </div>
       <div className="PersVertSpacer"></div>
       <div className="PersListElement">
-        <h2>Learning</h2>
+        <h3>Learning</h3>
         <ul className="PersDouble" id="LearningList"></ul>
       </div>
     </div>
     <div className="LineSpacer"></div>
-    <h1 className="PersTitle">Related Links</h1>
+    <h2 className="PersTitle">Related Links</h2>
     <p id="linkList"></p>
     <br></br>
     </div>

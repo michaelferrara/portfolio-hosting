@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
-import {projectPromise} from './DataHolder.js'
 import './SliderFull.scss';
 
 
 const SliderFull = (props) => {
-  let prom = new Promise(projectPromise);
-  let [sliderArr,setSlideArr] = useState([]);
+  let sliderArr = props.projectObj;
   const [x,setX] = useState(0);
   const [changeSlide,setChangeSlide] = useState(false);
+
+  if (sliderArr === null)
+  {
+    sliderArr = [];
+  }
 
   // Run at the beginning to order all the slides from being in a column to a row
   function moveSlides() {
@@ -47,7 +50,7 @@ const SliderFull = (props) => {
 
   // Switches pages once a project is picked
   function projectPick (index) {
-    props.handler(1, sliderArr[index]);
+    props.handler(1, index);
   }
 
   // Handles moving the carousel
@@ -91,13 +94,6 @@ const SliderFull = (props) => {
     setX(val);
   }
 
-  // Gets the information for the carousel
-  if (sliderArr < 1) {
-    prom.then((success, failed) => {
-      setSlideArr(success);
-    })
-  }
-
   // Sets the slide position
   if (changeSlide === false) {
     setTimeout(function() { moveSlides(); }, 200);
@@ -114,7 +110,7 @@ const SliderFull = (props) => {
               <div className="Panel">
                 <img className="Pic" src={process.env.PUBLIC_URL + item.pictures[0]} alt={item.name + " picture " + (index+1)}></img>
                 <div className="TextBox">
-                  <h2>{item.name}</h2>
+                  <h3>{item.name}</h3>
                   <p>{item.shortDescription}</p>
                   <button id={"more" + index} onClick={() => {projectPick(index)}}>more</button>
                 </div>

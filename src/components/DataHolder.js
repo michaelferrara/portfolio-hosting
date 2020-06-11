@@ -20,9 +20,11 @@ const personalData = {
 };
 
 let ProjArr = [];
+let projProm = null;
+let personalProm = null;
 let PersonalObj = null;
 
-export const projectPromise = (resolve, reject) => {
+const projectPromise = (resolve, reject) => {
 
   const row = (d) => {
     let data = JSON.parse(JSON.stringify(slideData));
@@ -97,7 +99,7 @@ export const projectPromise = (resolve, reject) => {
 }
 
 // Bio, techknown, techlearning, pictures, relLinks
-export const personalPromise = (resolve, reject) => {
+const personalPromise = (resolve, reject) => {
 
   const row = (d) => {
     let data = JSON.parse(JSON.stringify(personalData));
@@ -151,20 +153,32 @@ export const personalPromise = (resolve, reject) => {
   });
 }
 
-const projProm = new Promise(projectPromise);
-projProm.then((success,failed) => {
-  ProjArr = success;
-})
+if (projProm === null)
+{
+  projProm = new Promise(projectPromise);
+  projProm.then((success,failed) => {
+    ProjArr = success;
+  })
+}
 
-const personalProm = new Promise(personalPromise);
-personalProm.then((success,failed) => {
-  PersonalObj = success;
-})
+if (personalProm === null)
+{
+  personalProm = new Promise(personalPromise);
+  personalProm.then((success,failed) => {
+    PersonalObj = success;
+  })
+}
 
 export const getProjects = () => {
+  if (ProjArr === [])
+    return projProm;
+
   return ProjArr;
 }
 
 export const getPersonal = () => {
+  if (PersonalObj === null)
+    return personalProm;
+
   return PersonalObj;
 }

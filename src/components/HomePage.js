@@ -67,24 +67,24 @@ function HomePage(props){
           <div className="PicTextHolder">
             <h1>Michael Ferrara: Developer</h1>
             <br/>
-            <h3 id="Affirmation">Affirmation Loading</h3>
+            <h2 id="Affirmation">Affirmation Loading</h2>
           </div>
       </div>
       <div className="LineSpacer"></div>
 
-      <h1 className='DarkFont'>Projects</h1>
-      <SliderFull  handler = {props.handler.bind(this)}/>
+      <h2 className='DarkFont'>Projects</h2>
+      <SliderFull  handler = {props.handler.bind(this)} projectObj = {props.projectObj}/>
       <div className="LineSpacer"></div>
 
-      <h1 className='DarkFont'>Experience</h1>
+      <h2 className='DarkFont'>Experience</h2>
       <div className="ListHolder">
         <div className="ListElement">
-          <h2>Know</h2>
+          <h3>Know</h3>
           <ul className="double" id="KnownList"></ul>
         </div>
         <div className="VertSpacer"></div>
         <div className="ListElement">
-          <h2>Learning</h2>
+          <h3>Learning</h3>
           <ul className="double" id="LearningList"></ul>
         </div>
       </div>

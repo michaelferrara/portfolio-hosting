@@ -58,7 +58,7 @@
   overflow: hidden;
   z-index: 0;
 
-  h2 {
+  h3 {
     color: #333;
     margin-top: 1%;
     margin-bottom: 0;
@@ -144,17 +144,7 @@
       padding: 3px;
     }
   }
-  &:focus {
-    background-color: #333;
-    color: #ffffff;
 
-    .arrow {
-      border: solid #ffffff;
-      border-width: 0 3px 3px 0;
-      display: inline-block;
-      padding: 3px;
-    }
-  }
 
   &:active {
     background-color: #111;
