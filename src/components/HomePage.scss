@@ -2,147 +2,149 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
 
 #PageHolder {
-  display: flex;
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  flex-direction: column;
-  padding-bottom: 10vh;
+	display: flex;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	flex-direction: column;
+	padding-bottom: 10vh;
 }
 
 #PictureSection {
-  padding-top: 7vh;
-  background-color: #282c34;
-  display: flex;
-  flex-direction: row;
-  height: 70vh;
-  width: auto;
+	padding-top: 7vh;
+	background-color: #282c34;
+	display: flex;
+	flex-direction: row;
+	height: 70vh;
+	width: auto;
 }
 
 .ProfPic {
-  background: url("../michaelProf.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  width: 40%;
+	background: url("../michaelProf.jpg");
+	background-size: contain;
+	background-repeat: no-repeat;
+	width: 40%;
 }
 
 .PicTextHolder {
-  display: flex;
-  max-width: 50%;
-  flex-direction: column;
-  h1 {
-    //flex-grow: 1;
-    padding-left: 2vw;
-    margin-top: auto;
-    margin-bottom: auto;
-  }
-  h2 {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  #Affirmation {
-    margin-right: auto;
-    padding-right: .9%;
-    margin-top: auto;
-    font-size: 20px;
-    font-family: "Fira Sans", sans-serif;
-    word-wrap: break-word;
-    overflow: hidden;
-    float: left;
-  }
+	display: flex;
+	max-width: 50%;
+	flex-direction: column;
+
+	h1 {
+		padding-left: 2vw;
+		margin-top: auto;
+		margin-bottom: auto;
+	}
+	h2 {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	#Affirmation {
+		text-align: left;
+		margin-right: auto;
+		padding-right: 0.9%;
+		margin-top: auto;
+		font-size: 20px;
+		font-family: "Fira Sans", sans-serif;
+		word-wrap: break-word;
+		overflow: hidden;
+		float: left;
+	}
 }
 
 .LineSpacer {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5vh;
-  //margin-bottom: 5vh;
-  height: 2px;
-  width: 90vw;
-  flex-grow: 1;
-  background-color: #b8b8b8;
-  color: #b8b8b8;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5vh;
+	//margin-bottom: 5vh;
+	height: 2px;
+	width: 90vw;
+	flex-grow: 1;
+	background-color: #b8b8b8;
+	color: #b8b8b8;
 }
 
 #Carousel {
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-direction: row;
-  height: 50vh;
-  width: 95vw;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-direction: row;
+	height: 50vh;
+	width: 95vw;
 }
 
 #ProjectsCarousel {
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-direction: row;
-  height: 50vh;
-  width: 80vw;
-  background-color: #ededed;
-  color: #ededed;
-  border-style: solid;
-  border-color: #333;
-  border-width: 2px;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-direction: row;
+	height: 50vh;
+	width: 80vw;
+	background-color: #ededed;
+	color: #ededed;
+	border-style: solid;
+	border-color: #333;
+	border-width: 2px;
 
-  #Pic {
-    flex-grow: 1;
-    height: 100%;
-    width: auto;
-  }
+	#Pic {
+		flex-grow: 1;
+		height: 100%;
+		width: auto;
+	}
 }
 
 .DarkFont {
-  color: #333;
-  font-size: 1.8em;
+	color: #333;
+	font-size: 1.8em;
 }
 
 .ListHolder {
-  width: 75%;
-  min-height: 40%;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-direction: row;
+	width: 75%;
+	min-height: 40%;
+	margin-left: auto;
+	margin-right: auto;
+	display: flex;
+	flex-direction: row;
 }
 
 .ListElement {
-  h3 {
-    color: #333;
-  }
-  li {
-    font-family: "Fira Sans", sans-serif;
-    color: #333;
-  }
+	h3 {
+		color: #333;
+	}
+	li {
+		font-family: "Fira Sans", sans-serif;
+		color: #333;
+	}
 }
 
 .VertSpacer {
-  height: 45vh;
-  width: 2px;
-  background-color: #b8b8b8;
-  color: #b8b8b8;
-  margin-right: auto;
-  margin-left: auto;
+	height: 45vh;
+	width: 2px;
+	background-color: #b8b8b8;
+	color: #b8b8b8;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 .ListElement ul {
-  width:30vw;
-  margin-bottom:20px;
-  overflow:hidden;
-  text-align: left;
+	width: 30vw;
+	margin-bottom: 20px;
+	overflow: hidden;
+	text-align: left;
 }
 
-.ListElement li{
-  line-height:1.5em;
-  float:left;
-  display:inline;
+.ListElement li {
+	line-height: 1.5em;
+	float: left;
+	display: inline;
 }
 
 .ListElement li:before {
-  content: "✧ ";
-  color: #7820ab;
+	content: "✧ ";
+	color: #7820ab;
 }
 
-.double li  { width:50%;}
-
+.double li {
+	width: 50%;
+}

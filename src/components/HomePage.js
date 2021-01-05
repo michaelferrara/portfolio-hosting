@@ -1,15 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import SliderFull from './SliderFull.js';
 import './HomePage.scss';
 
+function HomePage(props) {
+  const [AffirmationNum, setAffirmationNum] = useState(0);
 
-//import profPic from '.././public/michaelProf.jpeg'
-
-function HomePage(props){
-
-  let [AffirmationNum, setAffirmationNum] = useState(0);
-
-  useEffect(() => {GetAffirmation();});
+  useEffect(() => { GetAffirmation(); });
 
   // Used to modify the Lists
   useEffect(() => {
@@ -44,15 +40,15 @@ function HomePage(props){
       const url = proxyurl + 'https://www.affirmations.dev/';
 
       fetch(url)
-      .then(val => val.text())
-      .then((data) => {
-        let obj = JSON.parse(data);
-        console.log("Affirmation: " + obj.affirmation);
-        document.getElementById("Affirmation").innerHTML = obj.affirmation;
-      })
-      .catch(reason => {
-        console.error(reason);
-      });
+        .then(val => val.text())
+        .then((data) => {
+          let obj = JSON.parse(data);
+          console.log("Affirmation: " + obj.affirmation);
+          document.getElementById("Affirmation").innerHTML = obj.affirmation;
+        })
+        .catch(reason => {
+          console.error(reason);
+        });
 
       setAffirmationNum(1);
 
@@ -63,17 +59,17 @@ function HomePage(props){
   return (
     <div id="PageHolder">
       <div id="PictureSection">
-          <div className="ProfPic" alt="Michael Ferrara"></div>
-          <div className="PicTextHolder">
-            <h1>Michael Ferrara: Developer</h1>
-            <br/>
-            <h2 id="Affirmation">Affirmation Loading</h2>
-          </div>
+        <div className="ProfPic" alt="Michael Ferrara"></div>
+        <div className="PicTextHolder">
+          <h1>Michael Ferrara: Developer</h1>
+          <br />
+          <h2 id="Affirmation">Affirmation Loading...</h2>
+        </div>
       </div>
       <div className="LineSpacer"></div>
 
       <h2 className='DarkFont'>Projects</h2>
-      <SliderFull  handler = {props.handler.bind(this)} projectObj = {props.projectObj}/>
+      <SliderFull handler={props.handler.bind(this)} projectObj={props.projectObj} />
       <div className="LineSpacer"></div>
 
       <h2 className='DarkFont'>Experience</h2>
