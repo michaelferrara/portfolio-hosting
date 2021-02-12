@@ -1,15 +1,24 @@
-import React from 'react';
-import MainPage from './components/MainPage.js';
-import './App.css';
+import React, { useEffect } from 'react';
+import Content from './components/Content.js';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <MainPage />
-      </header>
-    </div>
-  );
+
+	useEffect(() => {
+		if (window.history.scrollRestoration) {
+			window.history.scrollRestoration = 'manual';
+		}
+		else {
+			window.onbeforeunload = function () {
+				window.scrollTo(0, 0);
+			}
+		}
+	}, [])
+
+	return (
+		<div>
+			<Content />
+		</div>
+	);
 }
 
 export default App;
