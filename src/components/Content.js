@@ -17,7 +17,7 @@ function Content() {
 
 	useEffect(() => {
 		const onScroll = () => {
-			let currentPosition = document.documentElement.scrollTop//window.pageYOffset; // or use window.scrollY
+			let currentPosition = document.documentElement.scrollTop
 			setScrollTop(currentPosition <= 0 ? 0 : currentPosition)
 
 			if (currentPosition > projectsTop) {
@@ -40,7 +40,7 @@ function Content() {
 
 		window.addEventListener("scroll", onScroll)
 		return () => window.removeEventListener("scroll", onScroll)
-	}, [scrollTop])
+	}, [scrollTop, aboutTop, experienceTop, projectsTop, activeContent])
 
 	return (
 		<div className="page">

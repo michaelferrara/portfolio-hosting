@@ -6,7 +6,7 @@ function Experience({ setHeight }) {
 
 	useEffect(() => {
 		setHeight(experienceRef.current.getBoundingClientRect().top - 500)
-	}, [])
+	}, [setHeight])
 
 	return (
 		<div ref={experienceRef} id="experience">

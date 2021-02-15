@@ -6,7 +6,7 @@ function About({ setHeight }) {
 
 	useEffect(() => {
 		setHeight(aboutRef.current.getBoundingClientRect().top - 500)
-	}, [])
+	}, [setHeight])
 
 	return (
 		<div ref={aboutRef} id="about">

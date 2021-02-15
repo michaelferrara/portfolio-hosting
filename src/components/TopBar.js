@@ -1,8 +1,6 @@
 import React from 'react';
 import './HomePage.scss';
 
-import { Link } from 'react-scroll';
-
 function TopBar({ activeContent }) {
 
 	const selectContent = (val) => {
@@ -11,11 +9,6 @@ function TopBar({ activeContent }) {
 		let y = 0
 
 		switch (val) {
-			case (0):
-				elem = document.getElementById("home")
-				y = elem.getBoundingClientRect().top + window.pageYOffset + yOffset
-				window.scrollTo({ top: y, behavior: 'smooth' })
-				break
 			case (1):
 				elem = document.getElementById("about")
 				y = elem.getBoundingClientRect().top + window.pageYOffset + yOffset
@@ -31,20 +24,27 @@ function TopBar({ activeContent }) {
 				y = elem.getBoundingClientRect().top + window.pageYOffset + yOffset
 				window.scrollTo({ top: y, behavior: 'smooth' })
 				break
+			default:
+				elem = document.getElementById("home")
+				y = elem.getBoundingClientRect().top + window.pageYOffset + yOffset
+				window.scrollTo({ top: y, behavior: 'smooth' })
+				break
 		}
 	}
 
 	return (
 		<div className="top-bar">
-			<Link className={`${activeContent == "home" ? "current" : ""}`}
-				activeClass="active"
-				to="home"
-				spy={true}
-				smooth={true}
-				duration={1000}>
+			<span className={`${activeContent === "home" ? "current" : ""}`}
+				onClick={() => { selectContent(0) }}>
 				Home
-			</Link>
-			<span className={`${activeContent == "about" ? "current" : ""}`}>
+			</span>
+			<span className={`${activeContent === "about" ? "current" : ""}`}
+				onClick={() => { selectContent(1) }}>
+				About
+			</span>
+			<span className={`${activeContent === "experience" ? "current" : ""}`}
+				onClick={() => { selectContent(2) }}>
+				Experience
 			</span>
 			<span className={`${activeContent === "projects" ? "current" : ""}`}
 				onClick={() => { selectContent(3) }}>
