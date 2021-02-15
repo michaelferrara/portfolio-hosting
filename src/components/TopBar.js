@@ -1,7 +1,7 @@
 import React from 'react';
 import './HomePage.scss';
 
-fimport { Link } from 'react-scroll';
+import { Link } from 'react-scroll';
 
 function TopBar({ activeContent }) {
 
