@@ -1,6 +1,8 @@
 import React from 'react';
 import './HomePage.scss';
 
+fimport { Link } from 'react-scroll';
+
 function TopBar({ activeContent }) {
 
 	const selectContent = (val) => {
@@ -34,17 +36,15 @@ function TopBar({ activeContent }) {
 
 	return (
 		<div className="top-bar">
-			<span className={`${activeContent === "home" ? "current" : ""}`}
-				onClick={() => { selectContent(0) }}>
+			<Link className={`${activeContent == "home" ? "current" : ""}`}
+				activeClass="active"
+				to="home"
+				spy={true}
+				smooth={true}
+				duration={1000}>
 				Home
-			</span>
-			<span className={`${activeContent === "about" ? "current" : ""}`}
-				onClick={() => { selectContent(1) }}>
-				About
-			</span>
-			<span className={`${activeContent === "experience" ? "current" : ""}`}
-				onClick={() => { selectContent(2) }}>
-				Experience
+			</Link>
+			<span className={`${activeContent == "about" ? "current" : ""}`}>
 			</span>
 			<span className={`${activeContent === "projects" ? "current" : ""}`}
 				onClick={() => { selectContent(3) }}>
