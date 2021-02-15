@@ -21,19 +21,19 @@ function Content() {
 			setScrollTop(currentPosition <= 0 ? 0 : currentPosition)
 
 			if (currentPosition > projectsTop) {
-				if (activeContent != "projects")
+				if (activeContent !== "projects")
 					setActiveContent("projects")
 			}
 			else if (currentPosition > experienceTop) {
-				if (activeContent != "experience")
+				if (activeContent !== "experience")
 					setActiveContent("experience")
 			}
 			else if (currentPosition > aboutTop) {
-				if (activeContent != "about")
+				if (activeContent !== "about")
 					setActiveContent("about")
 			}
 			else {
-				if (activeContent != "home")
+				if (activeContent !== "home")
 					setActiveContent("home")
 			}
 		}
