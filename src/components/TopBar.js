@@ -35,19 +35,23 @@ function TopBar({ activeContent }) {
 	return (
 		<div className="top-bar">
 			<span className={`${activeContent === "home" ? "current" : ""}`}
-				onClick={() => { selectContent(0) }}>
+				onClick={() => { selectContent(0) }}
+				onTouchStart={() => { selectContent(0) }}>
 				Home
 			</span>
 			<span className={`${activeContent === "about" ? "current" : ""}`}
-				onClick={() => { selectContent(1) }}>
+				onClick={() => { selectContent(1) }}
+				onTouchStart={() => { selectContent(1) }}>
 				About
 			</span>
 			<span className={`${activeContent === "experience" ? "current" : ""}`}
-				onClick={() => { selectContent(2) }}>
+				onClick={() => { selectContent(2) }}
+				onTouchStart={() => { selectContent(2) }}>
 				Experience
 			</span>
 			<span className={`${activeContent === "projects" ? "current" : ""}`}
-				onClick={() => { selectContent(3) }}>
+				onClick={() => { selectContent(3) }}
+				onTouchStart={() => { selectContent(3) }}>
 				Projects
 			</span>
 		</div>

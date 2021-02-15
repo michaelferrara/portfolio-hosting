@@ -45,7 +45,7 @@ function Content() {
 	return (
 		<div className="page">
 			<TopBar activeContent={activeContent} />
-			<div ref={contentRef} className="content" onScroll={() => { console.log('hit') }}>
+			<div ref={contentRef} className="content">
 				<Home />
 				<About setHeight={setAboutTop} />
 				<div className="divider"></div>

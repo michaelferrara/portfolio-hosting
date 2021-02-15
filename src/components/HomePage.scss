@@ -20,6 +20,7 @@ $accent-color: #dff3f16b;
 	background-color: $dark-green;
 	justify-content: center;
 	align-items: center;
+	z-index: 10;
 
 	span {
 		display: inline-flex;
