@@ -48,7 +48,7 @@ function Content() {
 			<div ref={contentRef} className="content">
 				<Home />
 				<About setHeight={setAboutTop} />
-				<div className="divider"></div>
+				<div className="wrapper"><div className="divider div-transparent div-arrow-down"></div></div>
 				<Experience setHeight={setExperienceTop} />
 				<div className="divider"></div>
 				<Projects setHeight={setProjectsTop} />

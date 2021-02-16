@@ -1,5 +1,8 @@
 import React, { useEffect } from 'react';
 import Content from './components/Content.js';
+import smoothscroll from 'smoothscroll-polyfill';
+
+smoothscroll.polyfill()
 
 function App() {
 

@@ -1,10 +1,11 @@
-import React from 'react';
-import './HomePage.scss';
+import React from 'react'
+import './HomePage.scss'
+import resume from '../common/resume.pdf'
 
 function TopBar({ activeContent }) {
 
 	const selectContent = (val) => {
-		const yOffset = -100;
+		const yOffset = -100
 		let elem = {}
 		let y = 0
 
@@ -35,27 +36,36 @@ function TopBar({ activeContent }) {
 	return (
 		<div className="top-bar">
 			<span className={`${activeContent === "home" ? "current" : ""}`}
-				onClick={() => { selectContent(0) }}
-				onTouchStart={() => { selectContent(0) }}>
+				onClick={() => { selectContent(0) }}>
 				Home
 			</span>
 			<span className={`${activeContent === "about" ? "current" : ""}`}
-				onClick={() => { selectContent(1) }}
-				onTouchStart={() => { selectContent(1) }}>
+				onClick={() => { selectContent(1) }}>
 				About
 			</span>
 			<span className={`${activeContent === "experience" ? "current" : ""}`}
-				onClick={() => { selectContent(2) }}
-				onTouchStart={() => { selectContent(2) }}>
+				onClick={() => { selectContent(2) }}>
 				Experience
 			</span>
 			<span className={`${activeContent === "projects" ? "current" : ""}`}
-				onClick={() => { selectContent(3) }}
-				onTouchStart={() => { selectContent(3) }}>
+				onClick={() => { selectContent(3) }}>
 				Projects
 			</span>
+			<div className="resume-btn">
+				<a href={resume} target="_blank" rel="noopener noreferrer">
+					<span className="resume-text">
+						Resume
+					<svg className="icon icon-new-tab"><use href="#icon-new-tab"></use>
+							<symbol id="icon-new-tab" viewBox="0 0 32 32">
+								<path d="M6 2v24h24v-24h-24zM28 24h-20v-20h20v20zM4 28v-21l-2-2v25h25l-2-2h-21z"></path>
+								<path d="M11 8l5 5-6 6 3 3 6-6 5 5v-13z"></path>
+							</symbol>
+						</svg>
+					</span>
+				</a>
+			</div>
 		</div>
-	);
+	)
 }
 
 export default TopBar;
