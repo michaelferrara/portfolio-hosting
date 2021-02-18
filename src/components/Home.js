@@ -1,13 +1,12 @@
 import React from 'react';
 import './HomePage.scss';
-import image from '../images/michaelProf.jpg'
 import Icon from './Icon.js'
 
 function Home() {
 	return (
 		<div id="home">
 			<div className="picture-backing hide">
-				<img src={image} alt="Michael Ferrara" />
+				<img src="images/michaelProf.jpg" alt="Michael Ferrara" />
 			</div>
 			<h1>Michael Ferrara</h1>
 			<h2>Web Application Developer</h2>
