@@ -33,22 +33,36 @@ function TopBar({ activeContent }) {
 		}
 	}
 
+	const keyPressed = (e, val) => {
+		if (e.which === 13) {
+			selectContent(val)
+		}
+	}
+
 	return (
 		<div className="top-bar">
 			<span className={`${activeContent === "home" ? "current" : ""}`}
-				onClick={() => { selectContent(0) }}>
+				onClick={() => { selectContent(0) }}
+				onKeyPress={(e) => { keyPressed(e, 0) }}
+				tabIndex="0">
 				Home
 			</span>
 			<span className={`${activeContent === "about" ? "current" : ""}`}
-				onClick={() => { selectContent(1) }}>
+				onClick={() => { selectContent(1) }}
+				onKeyPress={(e) => { keyPressed(e, 1) }}
+				tabIndex="0">
 				About
 			</span>
 			<span className={`${activeContent === "experience" ? "current" : ""}`}
-				onClick={() => { selectContent(2) }}>
+				onClick={() => { selectContent(2) }}
+				onKeyPress={(e) => { keyPressed(e, 2) }}
+				tabIndex="0">
 				Experience
 			</span>
 			<span className={`${activeContent === "projects" ? "current" : ""}`}
-				onClick={() => { selectContent(3) }}>
+				onClick={() => { selectContent(3) }}
+				onKeyPress={(e) => { keyPressed(e, 3) }}
+				tabIndex="0">
 				Projects
 			</span>
 			<div className="resume-btn">

@@ -10,10 +10,19 @@ function Footer() {
 		window.scrollTo({ top: y, behavior: 'smooth' })
 	}
 
+	const keyPressed = (e) => {
+		if (e.which === 13) {
+			returnToTop()
+		}
+	}
+
 	return (
 		<div className="footer-holder">
 			<div className="footer">
-				<span onClick={returnToTop} ><div className="arrow-up"></div></span>
+				<span tabIndex="0"
+					onKeyPress={(e) => { keyPressed(e) }}
+					onClick={returnToTop}
+				><div className="arrow-up"></div></span>
 			</div>
 		</div>
 	);
