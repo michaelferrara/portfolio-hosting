@@ -188,10 +188,17 @@ body {
 			display: flex;
 			border: 3px solid $dark-green;
 
+<<<<<<< HEAD
 			#profile-pic {
 				width: auto ;
 				max-width: 100% ;
 				height: auto ;
+=======
+			.img {
+				width: 100%;
+				max-width: 100%;
+				height: auto;
+>>>>>>> ffc12e59cd1f90275da810b2c16e3d2528eb4389
 			}
 		}
 
