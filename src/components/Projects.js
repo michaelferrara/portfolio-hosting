@@ -1,20 +1,73 @@
-import React, { useEffect, useRef, useState } from 'react';
-import './HomePage.scss';
+import React, { useEffect, useRef, useState } from 'react'
+import './HomePage.scss'
 import Icon from './Icon'
 import { projects as projectData } from '../common/data.js'
 
+// Custom hook that will call the callback after <interval>ms unless the reset
+// is flipped
+function useInterval(callback, delay, reset, setReset) {
+	const savedCallback = useRef()
+	const resetRef = useRef(false)
+
+	// Remember the latest callback.
+	useEffect(() => {
+		savedCallback.current = callback
+	}, [callback])
+
+	useEffect(() => {
+		resetRef.current = true
+		setReset(false)
+	}, [reset, setReset])
+
+	// Set up the interval.
+	useEffect(() => {
+		function tick() {
+			if (resetRef.current) {
+				resetRef.current = false
+			}
+			else {
+				savedCallback.current()
+			}
+		}
+		if (delay !== null) {
+			let id = setInterval(tick, delay)
+			return () => clearInterval(id)
+		}
+	}, [delay])
+}
+
 function Projects({ setHeight }) {
 	const projectsRef = useRef(null)
-	const [currentProject, setCurrentProject] = useState({ name: "", description: "", contributions: "", links: [], pictures: [], index: -1 })
 	const [projectNum, setProjectNum] = useState(0)
 	const [pictureNum, setPictureNum] = useState(0)
 	const [currentPicture, setCurrentPicture] = useState('')
 	const [projects, setProjects] = useState([])
+	const [doReset, setDoReset] = useState(false)
+	const [currentProject, setCurrentProject] = useState(
+		{
+			name: "",
+			description: "",
+			contributions: "",
+			links: [],
+			pictures: [],
+			index: -1
+		})
 
 	useEffect(() => {
 		setProjects(projectData)
 	}, [])
 
+	// Changes picture every 15 seconds
+	useInterval(() => {
+		if (pictureNum >= currentProject.pictures.length - 1) {
+			setPictureNum(0)
+		}
+		else {
+			setPictureNum(pictureNum => pictureNum + 1)
+		}
+	}, 10000, doReset, setDoReset)
+
+	// Changes the project data
 	useEffect(() => {
 		if (projects.length >= projectNum + 1 && projectNum !== currentProject.index) {
 			const curProj = projects[projectNum]
@@ -31,19 +84,25 @@ function Projects({ setHeight }) {
 			setPictureNum(0)
 
 			setCurrentPicture('images/' + curProj.pictures[0])
+			setDoReset(true)
 		}
 	}, [projects, projectNum, currentProject])
 
+	// Changes the picture
 	useEffect(() => {
-		if (currentProject.pictures?.length >= pictureNum && currentPicture !== ('images/' + currentProject.pictures[pictureNum])) {
-			setCurrentPicture('images/' + currentProject.pictures[pictureNum])
+		const picStr = 'images/' + currentProject.pictures[pictureNum]
+
+		if (currentProject.pictures?.length >= pictureNum && currentPicture !== picStr) {
+			setCurrentPicture(picStr)
 		}
 	}, [pictureNum, currentProject, currentPicture])
 
+	// Gives the parent element this elements height
 	useEffect(() => {
 		setHeight(projectsRef.current.getBoundingClientRect().top - 500)
 	}, [setHeight])
 
+	// Keyboard support for changing the pictures
 	const keyPressed = (e, val) => {
 		if (e.which === 13) {
 			setPictureNum(val)
@@ -81,12 +140,18 @@ function Projects({ setHeight }) {
 					<p>{currentProject.contributions}</p>
 				</div>
 				<div className="button-holder">
-					<button onClick={() => { projectNum - 1 >= 0 ? setProjectNum(projectNum - 1) : setProjectNum(projectNum) }}>Previous</button>
-					<button onClick={() => { projectNum + 1 < projects.length ? setProjectNum(projectNum + 1) : setProjectNum(projectNum) }}>Next</button>
+					<button onClick={() => { projectNum - 1 >= 0 ? setProjectNum(projectNum - 1) : setProjectNum(projectNum) }}>
+						Previous
+						</button>
+					<button onClick={() => {
+						projectNum + 1 < projects.length ? setProjectNum(projectNum + 1) : setProjectNum(projectNum)
+					}}>
+						Next
+					</button>
 				</div>
 			</div>
 		</div>
-	);
+	)
 }
 
-export default Projects;
+export default Projects

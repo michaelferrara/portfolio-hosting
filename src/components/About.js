@@ -5,7 +5,7 @@ function About({ setHeight }) {
 	const aboutRef = useRef(null)
 
 	useEffect(() => {
-		setHeight(aboutRef.current.getBoundingClientRect().top - 500)
+		setHeight(aboutRef.current.getBoundingClientRect().top - 400)
 	}, [setHeight])
 
 	return (

@@ -21,7 +21,7 @@ body {
 
 .top-bar {
 	display: flex;
-	height: 3.5em;
+	height: 3.5rem;
 	min-height: 50px;
 	width: 100%;
 	position: fixed;
@@ -30,15 +30,24 @@ body {
 	align-items: center;
 	z-index: 10;
 
+	@media (max-width: 580px) {
+		font-size: 1rem;
+		justify-content: center;
+		align-self: center;
+	}
+
 	@media (max-width: 840px) {
-		font-size: 0.8em;
+		font-size: 1.2rem;
 	}
 
-	@media (max-width: 700px) {
-		font-size: 0.6em;
+	@media (max-width: 425px) {
+		font-size: 0.8rem;
+		justify-content: center;
+		align-self: center;
 	}
 
-	@media (max-width: 515px) {
+	@media (max-width: 345px) {
+		font-size: 0.7rem;
 		justify-content: center;
 		align-self: center;
 	}
@@ -50,7 +59,6 @@ body {
 		text-align: center;
 		color: $section-color;
 		cursor: pointer;
-		font-size: 1.3em;
 		padding: 0 16px;
 		height: 100%;
 
@@ -83,7 +91,7 @@ body {
 		right: 0px;
 		cursor: pointer;
 		padding: 0 10px;
-		font-size: 0.7em;
+		font-size: 0.7rem;
 
 		&:hover {
 				background-color: #327C83;
@@ -96,6 +104,10 @@ body {
 		@media (max-width: 515px) {
 			position: relative;
 			margin-left: auto;
+		}
+
+		@media (max-width: 345px) {
+			margin-right: 0;
 		}
 
 		span {
@@ -176,7 +188,7 @@ body {
 			display: flex;
 			border: 3px solid $dark-green;
 
-			.img {
+			#profile-pic {
 				width: auto ;
 				max-width: 100% ;
 				height: auto ;
@@ -184,17 +196,17 @@ body {
 		}
 
 		h1 {
-			font-size: 6em;
+			font-size: 6rem;
 			text-align: center;
 			margin: 0;
 			margin-top: 10px;
 
 			@media (max-width: 840px) {
-				font-size: 3em;
+				font-size: 3rem;
 			}
 
 			@media (max-width: 400px) {
-				font-size: 2.5em;
+				font-size: 2.5rem;
 			}
 		}
 
@@ -202,7 +214,7 @@ body {
 			margin: 0;
 
 			@media (max-width: 840px) {
-				font-size: 1em;
+				font-size: 1rem;
 			}
 		}
 
@@ -260,7 +272,7 @@ body {
 				max-width: 75ch;
 
 				@media (max-width: 515px) {
-					font-size: 0.8em;
+					font-size: 0.8rem;
 					line-height: 24px;
 				}
 			}
@@ -282,7 +294,7 @@ body {
 			h3 {
 				margin: 0;
 				margin-bottom: 0.9em;
-				font-size: 3.5em;
+				font-size: 3.5rem;
 				align-self: center;
 			}
 
@@ -291,16 +303,16 @@ body {
 				h4 {
 					margin: 0;
 					margin-bottom: 20px;
-					font-size: 2em;
+					font-size: 2rem;
 					border-bottom: 3px solid $dark-green;
 					padding: 0 10px 4px;
 
 					@media (max-width: 600px) {
-						font-size: 1.5em;
+						font-size: 1.5rem;
 					}
 
 					@media (max-width: 440px) {
-						font-size: 1.15em;
+						font-size: 1.15rem;
 					}
 
 					&:last-of-type {
@@ -310,12 +322,12 @@ body {
 
 				p {
 					margin: 0;
-					font-size: 1.2em;
+					font-size: 1.2rem;
 					line-height: 200%;
 					max-width: 75ch;
 
 					@media (max-width: 515px) {
-						font-size: 0.8em;
+						font-size: 0.8rem;
 						line-height: 24px;
 					}
 				}
@@ -328,13 +340,17 @@ body {
 		margin-bottom: 80px;
 
 		.projects-label {
-			font-size: 2.5em;
+			font-size: 2.5rem;
 			padding: 1rem;
 			width: fit-content;
 			border-radius: 0 20px 0 0;
 			border-bottom: 3px solid $section-color;
 			background-color: $dark-green;
 			color: $section-color;
+
+			@media (max-width: 425px) {
+				font-size: 2rem;
+			}
 		}
 
 		.projects-content {
@@ -352,7 +368,7 @@ body {
 				h3 {
 					margin: 0;
 					padding: 40px 20px;
-					font-size: 2.5em;
+					font-size: 2.5rem;
 				}
 
 				.icon {
@@ -371,14 +387,17 @@ body {
 				flex-direction: column;
 
 				img {
-					max-height: 400px;
+					max-height: 50vh;
 					margin: 30px auto;
 					box-shadow: 0px 8px 30px 4px rgba(0, 0, 0, 0.3),
 						 0px 8px 17px rgba(0, 0, 0, 0.3);
+					width: auto;
+					max-width: 100%;
+					height: auto;
 
-					width: auto ;
-					max-width: 100% ;
-					height: auto ;
+					@media (max-width: 580px) {
+						max-height: 30vh;
+					}
 				}
 
 				.image-options {
@@ -422,7 +441,7 @@ body {
 				align-items: center;
 
 				h4 {
-					font-size: 2em;
+					font-size: 2rem;
 					margin: 30px 0 0 0;
 					text-align: center;
 				}
@@ -430,7 +449,11 @@ body {
 				p {
 					margin: 30px 50px 30px 50px;
 					max-width: 75ch;
-    			font-size: 1.2em;
+    			font-size: 1.2rem;
+
+					@media (max-width: 320px) {
+						font-size: 1.1rem;
+					}
 
 					&:last-of-type {
 						margin-bottom: 0;
@@ -449,10 +472,15 @@ body {
 					color: $dark-green;
 					padding: 10px;
 					border-radius: 10px;
-					font-size: 1.5em;
+					font-size: 1.5rem;
 					min-width: 150px;
 					border: 0;
 					cursor: pointer;
+
+					@media (max-width: 375px) {
+						min-width: 100px;
+						font-size: 1rem;
+					}
 
 					&:last-of-type {
 						margin-left: 50px;
@@ -496,7 +524,7 @@ body {
 			width: 125px;
 			height: 125px;
 			border-radius: 100%;
-			font-size: 4em;
+			font-size: 4rem;
 			transition: background-color 100ms ease-out;
 
 			.arrow-up {
@@ -537,3 +565,12 @@ a {
 button {
 	transition: background-color 100ms ease-out;
 }
+
+
+// GLoabls
+@media (max-width: 425px) {
+	h3 {
+		font-size: 2.5rem !important;
+	}
+}
+

@@ -6,7 +6,7 @@ function Home() {
 	return (
 		<div id="home">
 			<div className="picture-backing hide">
-				<img src="images/michaelProf.jpg" alt="Michael Ferrara" />
+				<img id="profile-pic" src="images/michaelProf.jpg" alt="Michael Ferrara" />
 			</div>
 			<h1>Michael Ferrara</h1>
 			<h2>Web Application Developer</h2>
