@@ -1,7 +1,7 @@
-#Michael Ferrara Portfolio
+# Michael Ferrara Portfolio
 
-##Setup this application:
+## Setup this application:
 `yarn install`
 
-##Run the application:
+## Run the application:
 `yarn start`
