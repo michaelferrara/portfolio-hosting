@@ -5,35 +5,30 @@ import { projects as projectData } from '../common/data.js'
 
 // Custom hook that will call the callback after <interval>ms unless the reset
 // is flipped
-function useInterval(callback, delay, reset, setReset) {
+function useInterval(callback, delay, resetRef) {
 	const savedCallback = useRef()
-	const resetRef = useRef(false)
+	const [intervalId, setIntervalId] = useState(null)
 
 	// Remember the latest callback.
 	useEffect(() => {
 		savedCallback.current = callback
 	}, [callback])
 
-	useEffect(() => {
-		resetRef.current = true
-		setReset(false)
-	}, [reset, setReset])
-
 	// Set up the interval.
 	useEffect(() => {
 		function tick() {
-			if (resetRef.current) {
-				resetRef.current = false
-			}
-			else {
-				savedCallback.current()
-			}
+			savedCallback.current()
 		}
 		if (delay !== null) {
-			let id = setInterval(tick, delay)
+			if (intervalId !== null && resetRef.current) clearInterval(intervalId)
+
+			const id = setInterval(tick, delay)
+			setIntervalId(id)
+			resetRef.current = false
 			return () => clearInterval(id)
 		}
-	}, [delay])
+	// eslint-disable-next-line
+	}, [delay, resetRef.current])
 }
 
 function Projects({ setHeight }) {
@@ -42,7 +37,7 @@ function Projects({ setHeight }) {
 	const [pictureNum, setPictureNum] = useState(0)
 	const [currentPicture, setCurrentPicture] = useState('')
 	const [projects, setProjects] = useState([])
-	const [doReset, setDoReset] = useState(false)
+	const resetRef = useRef(false)
 	const [currentProject, setCurrentProject] = useState(
 		{
 			name: "",
@@ -56,16 +51,6 @@ function Projects({ setHeight }) {
 	useEffect(() => {
 		setProjects(projectData)
 	}, [])
-
-	// Changes picture every 15 seconds
-	useInterval(() => {
-		if (pictureNum >= currentProject.pictures.length - 1) {
-			setPictureNum(0)
-		}
-		else {
-			setPictureNum(pictureNum => pictureNum + 1)
-		}
-	}, 10000, doReset, setDoReset)
 
 	// Changes the project data
 	useEffect(() => {
@@ -84,17 +69,16 @@ function Projects({ setHeight }) {
 			setPictureNum(0)
 
 			setCurrentPicture('images/' + curProj.pictures[0])
-			setDoReset(true)
 		}
 	}, [projects, projectNum, currentProject])
 
 	// Changes the picture
 	useEffect(() => {
-		const picStr = 'images/' + currentProject.pictures[pictureNum]
-
-		if (currentProject.pictures?.length >= pictureNum && currentPicture !== picStr) {
-			setCurrentPicture(picStr)
+		if (pictureNum < currentProject.pictures?.length) {
+			const picStr = 'images/' + currentProject.pictures[pictureNum]
+			if (currentPicture !== picStr) setCurrentPicture(picStr)
 		}
+		else setPictureNum(0)
 	}, [pictureNum, currentProject, currentPicture])
 
 	// Gives the parent element this elements height
@@ -102,11 +86,27 @@ function Projects({ setHeight }) {
 		setHeight(projectsRef.current.getBoundingClientRect().top - 500)
 	}, [setHeight])
 
+	// Changes picture every 10 seconds
+	useInterval(() => {
+		if (pictureNum >= currentProject.pictures.length - 1) {
+			setPictureNum(0)
+		}
+		else {
+			setPictureNum(pictureNum => pictureNum + 1)
+		}
+	}, 10000, resetRef)
+
 	// Keyboard support for changing the pictures
 	const keyPressed = (e, val) => {
 		if (e.which === 13) {
+			resetRef.current = true
 			setPictureNum(val)
 		}
+	}
+
+	const onPictureClicked = (val) => {
+		resetRef.current = true
+		setPictureNum(val)
 	}
 
 	return (
@@ -121,30 +121,36 @@ function Projects({ setHeight }) {
 						})
 					}
 				</div>
-				<div className="image-picker">
-					<img src={currentPicture} alt="project example"></img>
-					<div className="image-options">
-						{currentProject.pictures.map((item, index) => {
-							return <span key={index}
-								tabIndex="0"
-								onClick={() => { setPictureNum(index) }}
-								onKeyPress={(e) => { keyPressed(e, index) }}
-								className={`circle ${index === pictureNum ? 'active' : ''}`}></span>
-						})}
+				<section className="project-container">
+					<div className="image-picker">
+						<img src={currentPicture} alt="project example"></img>
+						<div className="image-options">
+							{currentProject.pictures.map((item, index) => {
+								return <span key={index}
+									tabIndex="0"
+									onClick={() => { onPictureClicked(index) }}
+									onKeyPress={(e) => { keyPressed(e, index) }}
+									className={`circle ${index === pictureNum ? 'active' : ''}`}></span>
+							})}
+						</div>
 					</div>
-				</div>
-				<div className="text-holder">
-					<h4>Description</h4>
-					<p>{currentProject.description}</p>
-					<h4>My Contributions</h4>
-					<p>{currentProject.contributions}</p>
-				</div>
+					<div className="text-holder">
+						<div className="text-section">
+							<h4>Description</h4>
+							<p>{currentProject.description}</p>
+						</div>
+						<div className="text-section">
+							<h4>My Work</h4>
+							<p>{currentProject.contributions}</p>
+						</div>
+					</div>
+				</section>
 				<div className="button-holder">
-					<button onClick={() => { projectNum - 1 >= 0 ? setProjectNum(projectNum - 1) : setProjectNum(projectNum) }}>
+					<button onClick={() => { projectNum - 1 >= 0 ? setProjectNum(projectNum - 1) : setProjectNum(projects.length - 1) }}>
 						Previous
 						</button>
 					<button onClick={() => {
-						projectNum + 1 < projects.length ? setProjectNum(projectNum + 1) : setProjectNum(projectNum)
+						projectNum + 1 < projects.length ? setProjectNum(projectNum + 1) : setProjectNum(0)
 					}}>
 						Next
 					</button>
