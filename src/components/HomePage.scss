@@ -187,11 +187,12 @@ body {
 			justify-content: center;
 			display: flex;
 			border: 3px solid $dark-green;
+			position: relative;
 
 			#profile-pic {
 				width: 100% ;
-				max-width: 100% ;
 				height: auto ;
+				position: absolute;
 			}
 		}
 
@@ -248,7 +249,6 @@ body {
 	}
 
 	#about {
-		width: 80%;
 		margin-bottom: 20px;
 
 		.about-backing {
@@ -258,6 +258,11 @@ body {
 			background-color: $section-color;
 			padding: 3rem;
 			border-radius: 10px;
+
+			@media (max-width: 1100px) {
+				padding: 1.5rem;
+				margin: 0 15px;
+			}
 
 			h3 {
 				margin: 0;
@@ -269,7 +274,7 @@ body {
 				margin: 0;
 				font-size: 1.2rem;
 				line-height: 200%;
-				width: calc(100% - 100px);
+				max-width: 75ch;
 
 				@media (max-width: 515px) {
 					font-size: 0.8rem;
@@ -280,8 +285,7 @@ body {
 	}
 
 	#experience {
-		width: 80%;
-		margin-bottom: 20px;
+		margin-bottom: 100px;
 
 		.experience-backing {
 			display: flex;
@@ -290,6 +294,11 @@ body {
 			background-color: $section-color;
 			padding: 3rem;
 			border-radius: 10px;
+
+			@media (max-width: 1100px) {
+				padding: 1.5rem;
+				margin: 0 15px;
+			}
 
 			h3 {
 				margin: 0;
@@ -324,6 +333,7 @@ body {
 					margin: 0;
 					font-size: 1.2rem;
 					line-height: 200%;
+					max-width: 75ch;
 					max-width: 75ch;
 
 					@media (max-width: 515px) {
@@ -381,15 +391,32 @@ body {
 			}
 
 			.project-container {
-				display: flex;
-				flex-direction: row;
+				//display: flex;
+				//flex-direction: row;
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				grid-template-areas:
+					'carousel carousel content content '
+					'. buttons buttons .';
+
+				@media (max-width: 1100px) {
+					flex-direction: column;
+					align-items: center;
+					grid-template-columns: repeat(1, 1fr);
+					grid-template-areas:
+						'carousel'
+						'buttons'
+						'content';
+				}
 
 				.image-picker {
-					width: 50%;
+					width: 80%;
 					display: flex;
 					flex-direction: column;
 					align-items: center;
 					justify-content: center;
+					margin: auto;
+					grid-area: carousel;
 	
 					img {
 						max-height: 40vh;
@@ -440,16 +467,23 @@ body {
 				}
 
 				.text-holder {
-					width: calc(50% - 90px);
+					width: 90%;
 					justify-content: center;
 					display: flex;
 					flex-direction: column;
 					align-items: center;
-					background-color: #ECFFFD;
+					background-color: $section-color;
 					color: #006D77;
-					margin: 20px 25px;
+					margin: auto;
 					padding: 0 20px 20px;
 					border-radius: 10px;
+					grid-area: content;
+
+					@media (max-width: 1100px) {
+						width: auto;
+						margin-bottom: 25px;
+						margin: 0 15px 25px 15px;
+					}
 
 					.text-section {
 						width: 100%;
@@ -482,35 +516,40 @@ body {
 						}
 					}
 				}
-			}
 
-			.button-holder {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				margin: 20px 0 30px;
+				.button-holder {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					margin: 20px 0 30px;
+					grid-area: buttons;
+	
+					button {
+						background-color: $section-color;
+						color: $dark-green;
+						padding: 10px;
+						border-radius: 10px;
+						font-size: 1.5rem;
+						min-width: 150px;
+						border: 0;
+						cursor: pointer;
+	
+						@media (max-width: 375px) {
+							min-width: 100px;
+							font-size: 1rem;
+						}
 
-				button {
-					background-color: $section-color;
-					color: $dark-green;
-					padding: 10px;
-					border-radius: 10px;
-					font-size: 1.5rem;
-					min-width: 150px;
-					border: 0;
-					cursor: pointer;
-
-					@media (max-width: 375px) {
-						min-width: 100px;
-						font-size: 1rem;
-					}
-
-					&:last-of-type {
-						margin-left: 50px;
-					}
-
-					&:hover {
-						background-color: #d0eae8;
+						&:first-of-type {
+							margin-right: 25px;
+						}
+	
+						&:last-of-type {
+							margin-left: 25px;
+						}
+	
+						&:hover {
+							background-color: #d0eae8;
+						}
 					}
 				}
 			}

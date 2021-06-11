@@ -11,9 +11,9 @@ function Home() {
 			<h1>Michael Ferrara</h1>
 			<h2>Web Application Developer</h2>
 			<div className="logo-holder">
-				<Icon type="github" link="https://github.com/michaelferrara" />
-				<Icon type="linkedin" link="https://www.linkedin.com/in/michael-ferrara1/" />
-				<Icon type="email" link="mailto:ferrara.michael98@gmail.com" target="" />
+				<Icon type="github" title="https://github.com/michaelferrara" link="https://github.com/michaelferrara" />
+				<Icon type="linkedin" title="https://www.linkedin.com/in/michael-ferrara1/" link="https://www.linkedin.com/in/michael-ferrara1/" />
+				<Icon type="email" title="ferrara.michael98@gmail.com" link="mailto:ferrara.michael98@gmail.com" target="" />
 			</div>
 		</div>
 	);

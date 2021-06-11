@@ -1,10 +1,10 @@
 import React from 'react';
 import './HomePage.scss';
 
-function Icon({ type, link, target = "_blank" }) {
+function Icon({ type, link, target = "_blank", title="" }) {
 	return (
 		<div className="icon">
-			<a href={link} target={target} rel="noopener noreferrer">
+			<a href={link} target={target} title={title} style={{display: 'block'}} rel="noopener noreferrer">
 				{type === "wordpress"
 					?
 					<svg className="icon icon-wordpress">

@@ -27,9 +27,17 @@ function useInterval(callback, delay, resetRef) {
 			resetRef.current = false
 			return () => clearInterval(id)
 		}
-	// eslint-disable-next-line
 	}, [delay, resetRef.current])
 }
+
+const initProject = () => ({
+	name: "",
+	description: "",
+	contributions: "",
+	links: [],
+	pictures: [],
+	index: -1
+})
 
 function Projects({ setHeight }) {
 	const projectsRef = useRef(null)
@@ -38,15 +46,7 @@ function Projects({ setHeight }) {
 	const [currentPicture, setCurrentPicture] = useState('')
 	const [projects, setProjects] = useState([])
 	const resetRef = useRef(false)
-	const [currentProject, setCurrentProject] = useState(
-		{
-			name: "",
-			description: "",
-			contributions: "",
-			links: [],
-			pictures: [],
-			index: -1
-		})
+	const [currentProject, setCurrentProject] = useState(initProject())
 
 	useEffect(() => {
 		setProjects(projectData)
@@ -144,8 +144,7 @@ function Projects({ setHeight }) {
 							<p>{currentProject.contributions}</p>
 						</div>
 					</div>
-				</section>
-				<div className="button-holder">
+					<div className="button-holder">
 					<button onClick={() => { projectNum - 1 >= 0 ? setProjectNum(projectNum - 1) : setProjectNum(projects.length - 1) }}>
 						Previous
 						</button>
@@ -155,6 +154,7 @@ function Projects({ setHeight }) {
 						Next
 					</button>
 				</div>
+				</section>
 			</div>
 		</div>
 	)

@@ -44,6 +44,8 @@ function Content() {
 
 	return (
 		<div className="page">
+			Cross-Origin-Embedder-Policy: require-corp
+			Cross-Origin-Opener-Policy: same-origin
 			<TopBar activeContent={activeContent} />
 			<div ref={contentRef} className="content">
 				<Home />
@@ -52,9 +54,6 @@ function Content() {
 					<div className="divider div-transparent div-arrow-down"></div>
 				</div>
 				<Experience setHeight={setExperienceTop} />
-				<div className="wrapper">
-					<div className="divider div-transparent div-arrow-down"></div>
-				</div>
 				<Projects setHeight={setProjectsTop} />
 				<Footer />
 			</div>
