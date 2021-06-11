@@ -44,8 +44,6 @@ function Content() {
 
 	return (
 		<div className="page">
-			Cross-Origin-Embedder-Policy: require-corp
-			Cross-Origin-Opener-Policy: same-origin
 			<TopBar activeContent={activeContent} />
 			<div ref={contentRef} className="content">
 				<Home />
